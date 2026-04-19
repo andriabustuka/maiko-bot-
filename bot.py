@@ -29,13 +29,11 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    # ბოტმა საკუთარ თავზე არ უპასუხოს
     if message.author == client.user:
         return
 
     msg = message.content.lower()
 
-    # პასუხები ცუდ სიტყვებზე
     if "shit" in msg:
         await message.reply("shit კიარა შენივე shit არ გაჭამო უზრდელი ესს 😒")
     
@@ -48,8 +46,7 @@ async def on_message(message):
     elif "mogityan" in msg:
         await message.reply("ES RA ARISSSSSSSSSSSSSSSS TUTTTTTTTTTTTT")
 
-# 3. ბოტის გაშვება
+# 3. ბოტის გაშვება (ტოკენს იღებს Render-ის სეიფიდან)
 keep_alive()
-# ჩასვი შენი ტოკენი ქვემოთ ბრჭყალებში
-TOKEN = "MTQ5NTQ3MDk4MTEyNzQ3MTIyNA.GAIOv8.MHUimVGIr3M1e2zpW2Iu2y5_NgWEfbfNCOWBRM"
+TOKEN = os.getenv("DISCORD_TOKEN")
 client.run(TOKEN)
